@@ -91,10 +91,10 @@ class FullAlert:
 class GilbertFish:
 
     # ── sizes pulled from config ──
-    FS       = FISH_SIZE
-    INTAKE_R = max(26, FISH_SIZE // 3)   # wider mouth capture zone
+    FS       = int(FISH_SIZE * 1.6)      # 1.6x Larger for Visibility (Req #1)
+    INTAKE_R = max(32, FS // 3)          # Wider mouth zone
     DETECT_R = FISH_DETECT_RADIUS
-    DOT_THRESH = -0.20         # ~100° half-cone — wider so fish keeps sight during turns
+    DOT_THRESH = -0.20
 
     def __init__(self, river_y: int):
         _init_fonts()
@@ -132,8 +132,9 @@ class GilbertFish:
         self.wander_cd = 0
 
         # stats
-        self.total_cap = 0
-        self.session_t = 0
+        self.total_cap   = 0
+        self.session_t   = 0
+        self.max_capacity = FISH_CAPACITY # Dynamic (Req #6)
 
         # CV readouts
         self.cv_scanned  = 0
@@ -142,7 +143,7 @@ class GilbertFish:
 
         # FULL behaviour
         self.full_alert = FullAlert()
-        self._surface_target_y = river_y + 30   # y to rise to when FULL
+        self._surface_target_y = river_y + 30 
 
     # ── FORWARD VISION CONE ──────────────────────────────────
     def _detect(self, plastics):
@@ -267,7 +268,7 @@ class GilbertFish:
             self.depth_dir *= -1
 
         # ── FULL check ─────────────────────────────────────
-        is_full = len(self.storage) >= FISH_CAPACITY
+        is_full = len(self.storage) >= self.max_capacity
         self.full_alert.update(is_full, dt)
 
         if is_full and self.mode not in ("SURFACE", "FULL_IDLE"):
@@ -469,11 +470,11 @@ class GilbertFish:
             pygame.draw.ellipse(bs,(0,255,200,fa3),(bx2-bw//2,by2-bh//2,bw,bh),3)
         # stored waste dots
         n = len(self.storage)
-        for i in range(min(n, FISH_CAPACITY)):
+        for i in range(min(n, self.max_capacity)):
             di_x = bx2-bw//4+(i%6)*(bw//7+2)
             di_y = by2+bh//5+(i//6)*8
             # dots pulse orange→red when full
-            dot_col = (255,60,40,215) if n>=FISH_CAPACITY else (255,155,36,210)
+            dot_col = (255,60,40,215) if n>=self.max_capacity else (255,155,36,210)
             pygame.draw.circle(bs, dot_col, (int(di_x),int(di_y)), 3)
         br = pygame.transform.rotate(bs,-math.degrees(ang))
         surf.blit(br, br.get_rect(center=(px,py)))
@@ -582,8 +583,9 @@ class GilbertFish:
               }.get(self.mode,(192,192,192))
         _txt(surf,f"MODE     : {self.mode}",      FONT_MD,mc,      lx,ly)
         ly+=22
-        _txt(surf,f"STORAGE  : {len(self.storage)}/{FISH_CAPACITY}", FONT_MD,HUD_TEXT,lx,ly)
+        _txt(surf,f"STORAGE  : {len(self.storage)} / {self.max_capacity}", FONT_MD,HUD_TEXT,lx,ly)
         ly+=22
+        
         _txt(surf,f"CAPTURED : {self.total_cap}", FONT_MD,HUD_TEXT,lx,ly)
         ly+=22
         _txt(surf,f"FLOATING : {alive_count}",    FONT_MD,HUD_TEXT,lx,ly)
@@ -598,11 +600,14 @@ class GilbertFish:
         ly+=14
         bw=282
         pygame.draw.rect(surf,(18,48,78),(lx,ly,bw,11),border_radius=5)
-        fw = int(bw*len(self.storage)/max(1,FISH_CAPACITY))
-        fc = (252,95,68) if len(self.storage)>=FISH_CAPACITY else HUD_ACCENT
+        fw = int(bw*len(self.storage)/max(1,self.max_capacity))
+        fc = (252,95,68) if len(self.storage)>=self.max_capacity else HUD_ACCENT
         if fw>0:
             pygame.draw.rect(surf,fc,(lx,ly,fw,11),border_radius=5)
         pygame.draw.rect(surf,(*HUD_ACCENT,92),(lx,ly,bw,11),1,border_radius=5)
+        
+        # Req #4: Draw Full Alert on top
+        self.full_alert.draw(surf)
 
         # target tracking box
         if self.target and not self.target.captured:

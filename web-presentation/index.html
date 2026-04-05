@@ -1,0 +1,421 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Modern font: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Outfit:wght@400;700&display=swap"
+    rel="stylesheet">
+  <title>Autonomous Robotic Fish System</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- Section 1: Hero -->
+    <section id="hero" class="reveal">
+      <div class="overlay"></div>
+      <div class="container hero-content">
+        <h1 class="fade-up">Autonomous Robotic Fish System</h1>
+        <p class="fade-up delay-1">A bio-inspired system designed to detect and remove plastic waste from water using
+          intelligent robotic behavior.</p>
+        <div class="scroll-indicator fade-up delay-2">
+          <span>Scroll to explore</span>
+          <div class="arrow"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: The Problem (Req #1) -->
+    <section id="problem" class="reveal">
+      <div class="problem-content">
+        <div class="problem-slide">
+          <img src="https://images.unsplash.com/photo-1621451537084-482c73073a0f?auto=format&fit=crop&w=1920&q=80"
+            alt="Aquatic Threats">
+          <div class="slide-overlay-dark"></div>
+          <div class="slide-caption">
+            <h3>Threat to aquatic ecosystems</h3>
+          </div>
+        </div>
+        <div class="container header-wrap">
+          <h2 class="section-title">The Problem</h2>
+          <p class="section-subtitle">Rivers in India are severely polluted due to plastic waste and human activities.
+          </p>
+        </div>
+
+        <div class="slider-box">
+          <div class="slider-track" id="slider-track">
+            <!-- Slide 1: Unfiltered Reality (User Provied) -->
+            <div class="problem-slide active">
+              <img
+                src="https://imgs.search.brave.com/FsLyN8eQZMvsYxbZ9dSX9YYSys8qhnBRX1ekJskq36I/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9yZXMu/Y2xvdWRpbmFyeS5j/b20vZGpnZXN2MnJ5/L2ltYWdlL3VwbG9h/ZC92MTczMTI1MDY3/Ny9yaXZlci1wb2xs/dXRpb24taW4taW5k/aWEtMTFfc3B6NWpt/XzJfam1iMm1wLndl/YnA"
+                alt="Unfiltered Reality">
+              <div class="slide-overlay-dark"></div>
+              <div class="slide-caption">
+                <h3>Unfiltered reality of river pollution</h3>
+              </div>
+            </div>
+            <!-- Slide 2: Severely polluted Indian rivers -->
+            <div class="problem-slide">
+              <img
+                src="https://imgs.search.brave.com/xlGSbg8tAfcbPkzuyScK2LyO9T77xdqd51Lb4_qNspg/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTIz/MTMxNzU4My9waG90/by9rb2xrYXRhLXdl/c3QtYmVuZ2FsLWlu/ZGlhLWEtdmlldy1v/Zi10aGUtYmFua3Mt/b2YtaG9seS1yaXZl/ci1nYW5nYS1mdWxs/eS1wb2xsdXRlZC1i/eS10aGUuanBnP3M9/NjEyeDYxMiZ3PTAm/az0yMCZjPVlabHg5/S2Q3VjZmVEVYeUNP/YW5YemZDSUp2RFY4/RVFUMTVVajRyQ0JD/X0E9"
+                alt="Polluted Indian River">
+              <div class="slide-overlay-dark"></div>
+              <div class="slide-caption">
+                <h3>Severely polluted Indian rivers</h3>
+              </div>
+            </div>
+            <!-- Slide 2: Plastic waste accumulation -->
+            <div class="problem-slide">
+              <img src="https://eos.org/wp-content/uploads/2023/10/plastic-in-water.jpg" alt="Plastic Waste">
+              <div class="slide-overlay-dark"></div>
+              <div class="slide-caption">
+                <h3>Plastic waste accumulation</h3>
+              </div>
+            </div>
+            <!-- Slide 3: Toxic discharge into water -->
+            <div class="problem-slide">
+              <img
+                src="https://imgs.search.brave.com/_xQaKNvmMy4iRgu51dFaddRugo6LSHZOnJzEEtvMr_c/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zdGF0/aWMudmVjdGVlenku/Y29tL3N5c3RlbS9y/ZXNvdXJjZXMvdGh1/bWJuYWlscy8wNDcv/NzM0LzIwNi9zbWFs/bC9waWxlLW9mLWdh/cmJhZ2UtYXQtdGhl/LWJvdHRvbS1vZi10/aGUtc2VhLW9jZWFu/LWVudmlyb25tZW50/YWwtcG9sbHV0aW9u/LXBob3RvLmpwZw"
+                alt="Toxic Discharge">
+              <div class="slide-overlay-dark"></div>
+              <div class="slide-caption">
+                <h3>Toxic discharge into water</h3>
+              </div>
+            </div>
+            <!-- Slide 4: Threat to aquatic ecosystems -->
+
+          </div>
+
+          <!-- Navigation (Req #4) -->
+          <div class="slider-nav">
+            <button class="nav-arrow prev" onclick="prevSlide()">&larr;</button>
+            <button class="nav-arrow next" onclick="nextSlide()">&rarr;</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Transition: Problem to Solution -->
+    <div class="solution-transition reveal">
+      <div class="container text-center">
+        <p class="transition-tag fade-up">This is where technology meets nature.</p>
+        <h3 class="transition-title fade-up delay-1">Our Solution</h3>
+      </div>
+    </div>
+
+    <!-- Section: The Solution -->
+    <section id="solution" class="reveal">
+      <div class="container">
+        <div class="solution-grid">
+          <div class="solution-content fade-up">
+            <h2 class="solution-headline">Autonomous Robotic Fish Solution</h2>
+            <p class="solution-subtext">A bio-inspired system designed to detect, collect, and remove plastic waste from water bodies.</p>
+            
+            <div class="features-box">
+              <div class="feature-card">
+                <div class="feature-icon">👁️</div>
+                <div class="feature-info">
+                  <h4>Detection System</h4>
+                  <p>Uses computer vision to identify plastic waste</p>
+                </div>
+              </div>
+              <div class="feature-card">
+                <div class="feature-icon">🧠</div>
+                <div class="feature-info">
+                  <h4>Decision System</h4>
+                  <p>Intelligent movement toward detected waste</p>
+                </div>
+              </div>
+              <div class="feature-card">
+                <div class="feature-icon">🐟</div>
+                <div class="feature-info">
+                  <h4>Autonomous Movement</h4>
+                  <p>Moves naturally like a real fish</p>
+                </div>
+              </div>
+              <div class="feature-card">
+                <div class="feature-icon">🧺</div>
+                <div class="feature-info">
+                  <h4>Collection System</h4>
+                  <p>Gill-based intake stores microplastics</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="simulation-prompt-container">
+              <p class="simulation-prompt fade-up delay-2">Demonstrated through a real-time simulation below</p>
+              <div class="pulse-line"></div>
+            </div>
+          </div>
+          <div class="solution-visual fade-left delay-1">
+            <div class="image-premium-frame">
+              <img src="https://static.designboom.com/wp-content/uploads/2022/10/robot-fish-sucks-microplastics-designboom-1800.jpg" alt="Robotic Fish Technology" class="hero-image-styled">
+              <div class="image-glow"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Section: Impact -->
+    <section id="impact" class="reveal">
+      <div class="container relative-z">
+        <div class="text-center" style="margin-bottom: 5rem;">
+          <h2 class="section-title">Real-World Impact</h2>
+          <p class="section-subtitle">Transforming polluted waters into cleaner ecosystems using intelligent robotics.</p>
+        </div>
+        
+        <div class="impact-grid">
+          <div class="impact-card fade-up">
+            <div class="impact-icon-wrapper">
+              <span class="impact-icon">🌊</span>
+            </div>
+            <h3>Water Cleanup</h3>
+            <p><strong>Removes microplastics</strong> and floating waste from rivers with high precision.</p>
+          </div>
+          
+          <div class="impact-card fade-up delay-1">
+            <div class="impact-icon-wrapper">
+              <span class="impact-icon">🐟</span>
+            </div>
+            <h3>Marine Protection</h3>
+            <p><strong>Prevents ingestion</strong> of plastic by aquatic organisms, saving biodiversity.</p>
+          </div>
+          
+          <div class="impact-card fade-up delay-1">
+            <div class="impact-icon-wrapper">
+              <span class="impact-icon">♻️</span>
+            </div>
+            <h3>Sustainable Cycle</h3>
+            <p><strong>Automated collection</strong> ensures waste can be properly reused or recycled.</p>
+          </div>
+          
+          <div class="impact-card fade-up delay-2">
+            <div class="impact-icon-wrapper">
+              <span class="impact-icon">⚡</span>
+            </div>
+            <h3>Scalable AI</h3>
+            <p><strong>Swarm intelligence</strong> allows robotic fish to work together in large river bodies.</p>
+          </div>
+        </div>
+        
+        <div class="impact-footer">
+          <div class="statement-box fade-up delay-2">
+            <div class="impact-line"></div>
+            <p class="strong-statement">"A small robotic system can create a large environmental impact."</p>
+            <div class="impact-line"></div>
+          </div>
+          
+          <div class="future-vision fade-up delay-3">
+            <p>In the future, fleets of autonomous robotic fish could operate in major rivers like the Ganga and Yamuna, continuously removing waste and restoring natural balance.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Aesthetic background visual -->
+      <div class="impact-bg-visual">
+        <div class="ripple-effect"></div>
+      </div>
+    </section>
+
+
+
+    <!-- Section 2: Workflow -->
+    <section id="workflow" class="reveal">
+      <div class="container">
+        <h2 class="section-title">Operational Workflow</h2>
+        <div class="workflow-grid">
+          <div class="workflow-item fade-up">
+            <div class="icon">👁️</div>
+            <h3>Detection</h3>
+            <p>Real-time computer vision scans the aquatic environment for micro-plastics and debris.</p>
+          </div>
+          <div class="workflow-item fade-up delay-1">
+            <div class="icon">🧠</div>
+            <h3>Decision</h3>
+            <p>On-board AI determines the most efficient path to intercept and collect identified waste.</p>
+          </div>
+          <div class="workflow-item fade-up delay-1">
+            <div class="icon">🐟</div>
+            <h3>Movement</h3>
+            <p>Propelled by bio-inspired fin mechanics for silent, efficient, and natural maneuvering.</p>
+          </div>
+          <div class="workflow-item fade-up delay-2">
+            <div class="icon">🧺</div>
+            <h3>Collection</h3>
+            <p>Active intake mechanism captures debris and transfers it to the internal storage hull.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Fish Breakdown -->
+    <section id="breakdown" class="reveal">
+      <div class="container">
+        <h2 class="section-title">System Architecture</h2>
+        <div class="breakdown-layout">
+          <div class="diagram-main fade-up">
+            <img src="https://cimg2.ibsrv.net/cimg/www.dornob.com/900x516_85/2/gillbert-robo-fish-components-681002.jpg"
+              alt="Robotic Fish Architecture" class="fish-diagram-large">
+          </div>
+          <div class="breakdown-grid">
+            <div class="breakdown-card fade-up">
+              <h4>1. Head</h4>
+              <p>Vision system for real-time object detection and spatial mapping.</p>
+            </div>
+            <div class="breakdown-card fade-up delay-1">
+              <h4>2. Gill Structure</h4>
+              <p>Intake and filtering mechanism to capture micro-plastics from the water stream.</p>
+            </div>
+            <div class="breakdown-card fade-up delay-1">
+              <h4>3. Body</h4>
+              <p>Integrated storage system for collected waste with capacity monitoring.</p>
+            </div>
+            <div class="breakdown-card fade-up delay-2">
+              <h4>4. Tail</h4>
+              <p>High-efficiency propulsion system mimicking natural fish locomotion.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: Real-world Inspiration -->
+    <section id="inspiration" class="reveal full-width-section">
+      <div class="inspiration-bg">
+        <img
+          src="https://static.designboom.com/wp-content/uploads/2022/10/robot-fish-sucks-microplastics-designboom-1800.jpg"
+          alt="Real Fish Inspiration">
+      </div>
+      <div class="inspiration-overlay">
+        <h2 class="fade-up">Real-world inspiration for robotic microplastic collection</h2>
+      </div>
+    </section>
+
+    <!-- Section 5: Mission Monitor -->
+    <section id="simulation" class="reveal system-monitor">
+      <div class="monitor-wrapper">
+        <img src="http://localhost:5000/video_feed" alt="Live System Monitor" class="fullscreen-feed">
+
+        <!-- Cyber HUD Overlays -->
+        <div class="hud-overlay top-left">
+          <div class="hud-label">LIVE SYSTEM FEED</div>
+          <div class="hud-value">GILBERT v4.0 PROTOTYPE</div>
+        </div>
+
+        <div class="hud-overlay bottom-left">
+          <div class="hud-label">SENSORS & PAYLOAD</div>
+          <div style="margin-top: 10px;">
+            <span class="hud-value" style="font-size: 0.8rem;">MAX STORAGE: </span>
+            <span id="capacity-val" class="hud-value" style="color: var(--neon-cyan);">20</span>
+          </div>
+          <input type="range" id="capacity-slider" min="5" max="100" value="20" class="cyber-slider">
+        </div>
+
+        <div class="hud-overlay top-right">
+          <div class="hud-label">SIGNAL STATUS</div>
+          <div class="hud-value status-blink">STABLE MIRROR</div>
+          <div style="margin-top: 15px;">
+            <button onclick="resetSim()" class="hud-btn" id="reset-btn">SYSTEM RESET</button>
+          </div>
+        </div>
+
+        <div class="hud-overlay bottom-left">
+          <div class="hud-label">TELEMETRY LOCK</div>
+          <div class="hud-value">X11 DESKTOP CAPTURE</div>
+        </div>
+
+        <div class="overlay-bottom">
+          <div class="telemetry">
+            <div class="data-point">COORD: 45.2N, 12.8E</div>
+            <div class="data-point">STATUS: MIRRORING DESKTOP</div>
+            <div class="data-point">DEPTH: ANALYZING...</div>
+            <div class="data-point footer-text">&copy; 2026 BioRobotics Systems</div>
+          </div>
+        </div>
+
+        <div class="scanlines"></div>
+        <div class="vignette"></div>
+      </div>
+    </section>
+    <!-- Section: Market Size & Capital -->
+    <section id="market-capital" class="reveal">
+      <div class="container">
+        <h2 class="section-title">Market Size & Capital</h2>
+        
+        <div class="market-grid">
+          <!-- Subsection: Market Size -->
+          <div class="market-card fade-up">
+            <h3>Market Size</h3>
+            <ul class="market-list">
+              <li>Growing demand for water cleaning solutions globally</li>
+              <li>Increasing pollution in rivers, lakes, and urban water bodies</li>
+              <li>Strong need from:
+                <ul class="nested-list">
+                  <li>Government bodies</li>
+                  <li>Smart city projects</li>
+                  <li>Environmental agencies</li>
+                </ul>
+              </li>
+            </ul>
+
+            <div class="opportunity-box">
+              <h4>India Opportunity</h4>
+              <ul class="market-list">
+                <li>Large rivers require scalable solutions</li>
+                <li>Rising focus on water cleanup initiatives</li>
+                <li>Lack of affordable robotic systems</li>
+              </ul>
+            </div>
+            <p class="highlight-quote">"Large-scale problem with a rapidly growing market need."</p>
+          </div>
+
+          <!-- Subsection: Capital Requirement -->
+          <div class="market-card fade-up delay-1">
+            <h3>Capital Requirement</h3>
+            <p class="funding-call">"We are seeking initial funding of ₹3–5 Crore"</p>
+            
+            <div class="fund-use-container">
+              <h4>Use of funds:</h4>
+              <div class="fund-row"><span class="percent">40%</span> <span class="desc">R&D and prototype development</span></div>
+              <div class="fund-row"><span class="percent">25%</span> <span class="desc">Manufacturing setup (local/MSME)</span></div>
+              <div class="fund-row"><span class="percent">20%</span> <span class="desc">Software and control systems</span></div>
+              <div class="fund-row"><span class="percent">15%</span> <span class="desc">Pilot deployment in real environments</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Subsection: Vision -->
+        <div class="vision-section fade-up delay-2">
+          <div class="impact-line"></div>
+          <h3>Vision</h3>
+          <div class="vision-items">
+            <div class="vision-item">Scale across major rivers in India</div>
+            <div class="vision-item">Expand to global markets</div>
+            <div class="vision-item">Build a network of autonomous cleaning robots</div>
+          </div>
+          <p class="closing-statement">"One robot cleans. A swarm transforms rivers."</p>
+          <div class="impact-line"></div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    function resetSim() {
+      console.log("[*] Resetting Simulation Engine...");
+      fetch('http://localhost:5000/reset')
+        .then(res => res.json())
+        .then(data => console.log("[*] Reset Success:", data))
+        .catch(err => console.error("[!] Remote Reset Failed:", err));
+    }
+  </script>
+  <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>
